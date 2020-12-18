@@ -1,0 +1,13 @@
+{
+  "components": [
+    {
+      "type": "Xl.Core.UniversalCommon.Log.XlLog, Xl.Core.UniversalCommon",
+      "services": [
+        {
+          "type": "Xl.Core.UniversalCommon.Log.ILog,Xl.Core.UniversalCommon"
+        }
+      ],
+      "injectProperties": true
+    }
+  ]
+}

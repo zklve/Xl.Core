@@ -1,0 +1,14 @@
+{
+  "components": [
+    /******************************≈‰÷√Service************************************/
+    {
+      "type": "Xl.Core.ArchiveService.User.UserService,Xl.Core.ArchiveService",
+      "services": [
+        {
+          "type": "Xl.Core.ArchiveService.User.IUserService,Xl.Core.ArchiveService"
+        }
+      ],
+      "injectProperties": true
+    }
+  ]
+}

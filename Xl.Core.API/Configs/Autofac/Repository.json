@@ -1,0 +1,26 @@
+{
+  "components": [
+    /******************************≈‰÷√DB************************************/
+    {
+      "type": "Xl.Core.DbSession.DataBase.MySqlDb,Xl.Core.DbSession",
+      "services": [
+        {
+          "type": "Xl.Core.DbSession.DataBase.IDb,Xl.Core.DbSession"
+        }
+      ],
+      "injectProperties": true
+    },
+
+    /*****************************≈‰÷√ª˘¥°–≈œ¢*************************************/
+    {
+      "type": "Xl.Core.Repository.User.UserRepository,Xl.Core.Repository",
+      "services": [
+        {
+          "type": "Xl.Core.Repository.User.IUserRepository,Xl.Core.Repository"
+        }
+      ],
+      "injectProperties": true
+    }
+
+  ]
+}

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="CompanyArchive\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Xl.Core.DomainModel\Xl.Core.DomainModel.csproj" />
+    <ProjectReference Include="..\Xl.Core.Repository\Xl.Core.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

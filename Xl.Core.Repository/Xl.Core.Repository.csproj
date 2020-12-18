@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UserRepository\IUserRepositorycs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="UserRepository\IUserRepositorycs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Xl.Core.DomainModel\Xl.Core.DomainModel.csproj" />
+    <ProjectReference Include="..\Xl.Core.IDb\Xl.Core.DbSession.csproj" />
+  </ItemGroup>
+
+</Project>

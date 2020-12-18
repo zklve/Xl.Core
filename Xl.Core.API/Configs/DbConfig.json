@@ -1,0 +1,9 @@
+{
+  "Host": "172.172.3.50",
+  "Port": 8069,
+  "ServiceName": "xlcloud",
+  "UserName": "xlsoft",
+  "Password": "xlsoft1!",
+  "CommandTimeout": 300,
+  "ConnectionLifetime": ""
+}

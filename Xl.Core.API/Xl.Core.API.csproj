@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.0.0" />
+    <PackageReference Include="Autofac.Configuration" Version="6.0.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Xl.Core.ArchiveService\Xl.Core.ArchiveService.csproj" />
+    <ProjectReference Include="..\Xl.Core.HbService\Xl.Core.HbService.csproj" />
+    <ProjectReference Include="..\Xl.Core.UniversalCommon\Xl.Core.UniversalCommon.csproj" />
+  </ItemGroup>
+
+
+</Project>
