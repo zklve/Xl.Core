@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Configuration;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Xl.Core.API.Filters;
 using Xl.Core.API.Modules;
 using Xl.Core.UniversalCommon;
 
@@ -30,6 +32,8 @@ namespace Xl.Core.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //”√≤ªµΩ
+            //services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHandler>();
             services.AddControllers();
         }
 
@@ -57,6 +61,8 @@ namespace Xl.Core.API
                 Application.Container = (IContainer)scope;
             });
             #endregion
+
+           
 
         }
 

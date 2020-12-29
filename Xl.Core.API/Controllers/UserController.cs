@@ -26,7 +26,7 @@ namespace Xl.Core.API.Controllers
         public ActionResult Login(int id)
         {
             string msg = "登录时间:" + DateTime.Now.ToString();
-            _log.WriteLog(msg);
+            _log.WriteLogSync(msg);
             var userInfo = userService.GetAllInfoById(id);
             return Ok(userInfo);
         }

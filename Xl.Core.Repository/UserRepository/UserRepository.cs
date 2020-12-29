@@ -20,7 +20,7 @@ namespace Xl.Core.Repository.User
         public Account GetAllInfoById(int Id)
         {
             string sql = " select *  from account where accountid =@id ";
-            return DapperHelper.QueryFirst<Account>(sql, new { id= Id });
+            return DapperHelper.QuerySingle<Account>(sql, new { id= Id });
         }
 
         public void Save()
