@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using Autofac;
+using Dapper;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using Xl.Core.DbSession.DataBase;
+using Xl.Core.UniversalCommon;
 using Xl.Core.UniversalCommon.Configs;
 using Xl.Core.UniversalCommon.Helper;
 
@@ -14,14 +16,16 @@ namespace Xl.Core.DbSession.Helper
 {
     public class DapperHelper
     {
-
-        public  static IDb _Db;
+        public static IDb _Db;
 
         static DapperHelper()
         {
             if (_Db == null)
             {
-                
+                using (var scope = Application.Container.BeginLifetimeScope())
+                {
+                    _Db = scope.Resolve<IDb>();
+                }
             }
         }
 
@@ -31,7 +35,7 @@ namespace Xl.Core.DbSession.Helper
         /// <param name="sql">查询的sql</param>
         /// <param name="param">替换参数</param>
         /// <returns></returns>
-        public static List<T> Query<T>(string sql, object param)  where T :class,new()
+        public static List<T> Query<T>(string sql, object param) where T : class, new()
         {
             using (var conn = _Db.GetDbConnection())
             {
@@ -103,7 +107,7 @@ namespace Xl.Core.DbSession.Helper
         /// <returns></returns>
         public static int Execute(string sql, object param)
         {
-             using (var conn = _Db.GetDbConnection())
+            using (var conn = _Db.GetDbConnection())
             {
                 return conn.Execute(sql, param);
             }
@@ -117,7 +121,7 @@ namespace Xl.Core.DbSession.Helper
         /// <returns></returns>
         public static IDataReader ExecuteReader(string sql, object param)
         {
-             using (var conn = _Db.GetDbConnection())
+            using (var conn = _Db.GetDbConnection())
             {
                 return conn.ExecuteReader(sql, param);
             }
@@ -131,7 +135,7 @@ namespace Xl.Core.DbSession.Helper
         /// <returns></returns>
         public static object ExecuteScalar(string sql, object param)
         {
-             using (var conn = _Db.GetDbConnection())
+            using (var conn = _Db.GetDbConnection())
             {
                 return conn.ExecuteScalar(sql, param);
             }
@@ -145,7 +149,7 @@ namespace Xl.Core.DbSession.Helper
         /// <returns></returns>
         public static T ExecuteScalarForT<T>(string sql, object param) where T : class, new()
         {
-             using (var conn = _Db.GetDbConnection())
+            using (var conn = _Db.GetDbConnection())
             {
                 return conn.ExecuteScalar<T>(sql, param);
             }
@@ -159,7 +163,7 @@ namespace Xl.Core.DbSession.Helper
         /// <returns></returns>
         public static List<T> ExecutePro<T>(string proc, object param) where T : class, new()
         {
-             using (var conn = _Db.GetDbConnection())
+            using (var conn = _Db.GetDbConnection())
             {
                 List<T> list = conn.Query<T>(proc,
                     param,
@@ -180,7 +184,7 @@ namespace Xl.Core.DbSession.Helper
         /// <returns></returns>
         public static int ExecuteTransaction(string[] sqlarr)
         {
-             using (var conn = _Db.GetDbConnection())
+            using (var conn = _Db.GetDbConnection())
             {
                 using (var transaction = conn.BeginTransaction())
                 {
@@ -215,7 +219,7 @@ namespace Xl.Core.DbSession.Helper
         /// <returns></returns>
         public static int ExecuteTransaction(Dictionary<string, object> dic)
         {
-             using (var conn = _Db.GetDbConnection())
+            using (var conn = _Db.GetDbConnection())
             {
                 using (var transaction = conn.BeginTransaction())
                 {

@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Xl.Core.API.Modules;
+using Xl.Core.UniversalCommon;
 
 namespace Xl.Core.API
 {
@@ -35,25 +36,28 @@ namespace Xl.Core.API
         public void ConfigureContainer(ContainerBuilder builder)
         {
             #region 配置注入
-            //var config = new ConfigurationBuilder();
-            //config.AddJsonFile(Path.Combine( AppDomain.CurrentDomain.BaseDirectory+ "/Configs/Autofac", "Common.json"));
-            //var module = new ConfigurationModule(config.Build());
-            //builder.RegisterModule(module);
+            var config = new ConfigurationBuilder();
+            config.AddJsonFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "/Configs/Autofac", "Common.json"));
+            var module = new ConfigurationModule(config.Build());
+            builder.RegisterModule(module);
 
-            //config.AddJsonFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "/Configs/Autofac", "Repository.json"));
-            //module = new ConfigurationModule(config.Build());
-            //builder.RegisterModule(module);
+            config.AddJsonFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "/Configs/Autofac", "Repository.json"));
+            module = new ConfigurationModule(config.Build());
+            builder.RegisterModule(module);
 
-            //config.AddJsonFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "/Configs/Autofac", "Service.json"));
-            //module = new ConfigurationModule(config.Build());
-            //builder.RegisterModule(module);
+            config.AddJsonFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "/Configs/Autofac", "Service.json"));
+            module = new ConfigurationModule(config.Build());
+            builder.RegisterModule(module);
 
             #endregion
 
-            #region 编码注入
-            //自动注入
-            builder.RegisterModule<NetCoreAutoFacServiceModule>();
+            #region 全局对象注册
+            builder.RegisterBuildCallback(scope =>
+            {
+                Application.Container = (IContainer)scope;
+            });
             #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
