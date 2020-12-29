@@ -6,7 +6,7 @@ using Xl.Core.Repository.Base;
 
 namespace Xl.Core.Repository.User
 {
-    public interface IUserRepositorycs 
+    public interface IUserRepository 
     {
         string GetUserName(string accountCode);
 

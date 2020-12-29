@@ -15,5 +15,10 @@ namespace Xl.Core.Repository.Base
                 DapperHelper._Db = db;
             }
         }
+
+        public BaseRepo()
+        {
+
+        }
     }
 }

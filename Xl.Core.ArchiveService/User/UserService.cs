@@ -8,9 +8,9 @@ namespace Xl.Core.ArchiveService.User
 {
     public class UserService : IUserService
     {
-        private IUserRepositorycs repository;
+        private IUserRepository repository;
 
-        public UserService(IUserRepositorycs userRepository)
+        public UserService(IUserRepository userRepository)
         {
             this.repository = userRepository;
         }

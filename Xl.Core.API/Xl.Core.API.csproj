@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Xl.Core.ArchiveService\Xl.Core.ArchiveService.csproj" />
-    <ProjectReference Include="..\Xl.Core.HbService\Xl.Core.HbService.csproj" />
     <ProjectReference Include="..\Xl.Core.UniversalCommon\Xl.Core.UniversalCommon.csproj" />
   </ItemGroup>
 

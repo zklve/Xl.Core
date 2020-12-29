@@ -8,7 +8,7 @@ namespace Xl.Core.ArchiveService.User
     public class UserAggregate 
     {
 
-        public static IUserRepositorycs _userRepository;
+        public static IUserRepository _userRepository;
 
         public string AccountCode { get; set; }
 
@@ -16,12 +16,12 @@ namespace Xl.Core.ArchiveService.User
 
         public bool IsSuperAdmin { get; set; }
 
-        public UserAggregate(IUserRepositorycs repository)
+        public UserAggregate(IUserRepository repository)
         {
 
         }
 
-        public static void RegisterUserRepository(IUserRepositorycs repository)
+        public static void RegisterUserRepository(IUserRepository repository)
         {
             _userRepository = repository;
         }

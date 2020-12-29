@@ -17,6 +17,14 @@ namespace Xl.Core.DbSession.Helper
 
         public  static IDb _Db;
 
+        static DapperHelper()
+        {
+            if (_Db == null)
+            {
+                
+            }
+        }
+
         /// <summary>
         /// 查询列表
         /// </summary>

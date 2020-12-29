@@ -6,6 +6,7 @@ namespace Xl.Core.DbSession.DataBase
 {
     public class SqlServerDb
     {
-       
+
+
     }
 }

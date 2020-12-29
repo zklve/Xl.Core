@@ -5,11 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Company\Input\" />
-    <Folder Include="Company\Output\" />
-    <Folder Include="Company\Db\" />
+    <Compile Remove="Company\**" />
+    <Compile Remove="User\Db\**" />
+    <EmbeddedResource Remove="Company\**" />
+    <EmbeddedResource Remove="User\Db\**" />
+    <None Remove="Company\**" />
+    <None Remove="User\Db\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="User\Input\" />
-    <Folder Include="User\Db\" />
   </ItemGroup>
 
 </Project>

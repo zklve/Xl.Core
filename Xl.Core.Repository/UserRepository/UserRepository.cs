@@ -9,12 +9,8 @@ using Xl.Core.Repository.Base;
 
 namespace Xl.Core.Repository.User
 {
-    public class UserRepository : BaseRepo, IUserRepositorycs
+    public class UserRepository : BaseRepo, IUserRepository
     {
-        public UserRepository(IDb db):base(db)
-        {
-           
-        }
 
         public string GetUserName(string accountCode)
         {
